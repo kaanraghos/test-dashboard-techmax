@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Available Tests</title>
+</head>
+<body>
+<h1>Available Tests</h1>
+<ul>
+    <li th:each="test : ${tests}">
+        <span th:text="${test.title}">Test Title</span> -
+        <a th:href="@{/test/submit-form(testId=${test.id})}">Take Test</a>
+    </li>
+</ul>
+</body>
+</html>

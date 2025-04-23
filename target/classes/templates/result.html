@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Result</title>
+</head>
+<body>
+<h1>Your Test Result</h1>
+<p>Score: <span th:text="${result.score}">0</span>%</p>
+<p>Completed At: <span th:text="${result.completedAt}">Date</span></p>
+
+<a th:href="@{/test/home}">Back to Test List</a>
+</body>
+</html>

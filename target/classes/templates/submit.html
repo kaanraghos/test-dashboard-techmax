@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Take Test</title>
+</head>
+<body>
+<h1 th:text="${test.title}">Test Title</h1>
+<p th:text="${test.description}">Test Description</p>
+
+<form th:action="@{/test/submit-form}" method="post">
+    <input type="hidden" name="testId" th:value="${test.id}"/>
+
+    <div th:each="question : ${test.questions}">
+        <h3 th:text="${question.content}">Question Content</h3>
+
+        <div th:each="option : ${question.options}">
+            <label>
+                <input type="checkbox" name="selectedOptionIds" th:value="${option.id}"/>
+                <span th:text="${option.content}">Option Content</span>
+            </label>
+            <br/>
+        </div>
+    </div>
+
+    <button type="submit">Submit Test</button>
+</form>
+</body>
+</html>
