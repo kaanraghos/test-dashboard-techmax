@@ -24,7 +24,7 @@ public class SecurityConfig {
                                 "/test/all-tests",
                                 "/css/**", "/js/**"
                         ).permitAll()
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
                 );
         return http.build();
     }

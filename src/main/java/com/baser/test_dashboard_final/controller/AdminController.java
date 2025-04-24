@@ -14,11 +14,15 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Autowired
-    private QuestionRepository questionRepository;
+    private final QuestionRepository questionRepository;
+
+    private final TestRepository testRepository;
 
     @Autowired
-    private TestRepository testRepository;
+    public AdminController(QuestionRepository questionRepository, TestRepository testRepository) {
+        this.questionRepository = questionRepository;
+        this.testRepository = testRepository;
+    }
 
 
     @PostMapping("/add-test")

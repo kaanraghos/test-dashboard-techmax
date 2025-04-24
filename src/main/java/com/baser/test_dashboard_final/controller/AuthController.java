@@ -2,7 +2,8 @@ package com.baser.test_dashboard_final.controller;
 
 import com.baser.test_dashboard_final.entity.User;
 import com.baser.test_dashboard_final.repository.UserRepository;
-import com.baser.test_dashboard_final.util.JwtUtil;
+import com.baser.test_dashboard_final.config.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -14,6 +15,7 @@ public class AuthController {
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
 
+    @Autowired
     public AuthController(UserRepository userRepository, JwtUtil jwtUtil) {
         this.userRepository = userRepository;
         this.jwtUtil = jwtUtil;

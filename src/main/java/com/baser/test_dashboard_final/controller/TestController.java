@@ -15,11 +15,14 @@ import java.util.List;
 @RequestMapping("/test")
 public class TestController {
 
-    @Autowired
-    private TestService testService;
+    private final TestService testService;
 
-    @Autowired
-    private TestRepository testRepository;
+    private final TestRepository testRepository;
+
+    public TestController(TestService testService, TestRepository testRepository) {
+        this.testService = testService;
+        this.testRepository = testRepository;
+    }
 
 
     @GetMapping("/home")
